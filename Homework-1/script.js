@@ -10,7 +10,7 @@ let appData = {
     savings: false
 };
 
-for (let i=0; i<=2; i++) {
+for (let i = 0; i < 2; i++) {
     let a = prompt('Введіть обов\'язкову статтю видатків у цьому місяці:', ''),
         b = prompt('В яку суму обійдеться?', '');
     appData.expenses[a] = b;
