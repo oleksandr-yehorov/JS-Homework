@@ -10,30 +10,12 @@ let appData = {
     savings: false
 };
 
-for (let i = 0; i < 2; i++) {
-    let a = prompt('Введіть обов\'язкову статтю видатків у цьому місяці:', ''),
-        b = prompt('В яку суму обійдеться?', '');
-    if ((typeof(a) === 'string') && typeof(a) != null && typeof(b) != null
-        && a != '' && b != '' && a.length < 50) {
-            console.log("done");
-            appData.expenses[a] = b;
-    } else {
-        i--;
-    }
-;}
+let a1 = prompt("Введіть обов\'язкову статтю видатків у цьому місяці:", ''),
+    a2 = prompt('В яку суму обійдеться?', ''),
+    a3 = prompt("Введіть обов\'язкову статтю видатків у цьому місяці:", ''),
+    a4 = prompt('В яку суму обійдеться?', '');
 
-appData.moneyPerDay = appData.budget/30;
+appData.expenses.a1 = a2;
+appData.expenses.a3 = a4;
 
-alert("Щоденний бюджет: " + appData.moneyPerDay);
-
-if (appData.moneyPerDay < 100) {
-    console.log("Мінімальний рівень достатку");
-} else if (appData.moneyPerDay > 100 && appData.moneyPerDay < 2000) {
-    console.log("Середній рівень достатку");
-} else if (appData.moneyPerDay > 2000) {
-    console.log("Високий рівень достатку");
-} else {
-    console.log("Помилка!");
-};
-
-    
+alert("Щоденний бюджет: " + appData.budget/30);
