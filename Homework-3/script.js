@@ -3,9 +3,9 @@ let money, time;
 function start() {
     money = +prompt('Ваш бюджет на місяць?', '');
     time = prompt('Введіть дату у форматі YYYY-MM-DD:', '');
-    while (isNan(money) || money === '' || money === null) {
+    while (isNaN(money) ==true  || money == "" || money == null) {
         money = +prompt('Ваш бюджет на місяць?', '');
-    }
+    };
 };
 
 start();
@@ -16,7 +16,7 @@ let appData = {
     optionalExpenses: {},
     income: [],
     timeData: time,
-    savings: false
+    savings: true
 };
 
 function chooseExpenses() {
@@ -35,7 +35,7 @@ function chooseExpenses() {
 
 chooseExpenses();
 
-appData.moneyPerDay = appData.budget/30;
+appData.moneyPerDay = (appData.budget/30).toFixed();
 
 alert("Щоденний бюджет: " + appData.moneyPerDay);
 
@@ -49,4 +49,15 @@ if (appData.moneyPerDay < 100) {
     console.log("Помилка!");
 };
 
-    
+function checkSavings() {
+    if (appData.savings == true) {
+        let save = +prompt("Яка сума заощаджень?"),
+            percent = +prompt("Під який процент?");
+        
+        appData.monthIncome = save/100/12*percent;
+        alert("Дохід за місяць з Вашого депозиту: " + appData.monthIncome);
+
+    }
+};
+
+checkSavings();
