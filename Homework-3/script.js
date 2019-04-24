@@ -35,9 +35,26 @@ function chooseExpenses() {
 
 chooseExpenses();
 
-appData.moneyPerDay = (appData.budget/30).toFixed();
+function detectDayBudget() {
+    appData.moneyPerDay = (appData.budget/30).toFixed();  // округлення значення
+    alert("Щоденний бюджет: " + appData.moneyPerDay);
+}
 
-alert("Щоденний бюджет: " + appData.moneyPerDay);
+detectDayBudget();
+
+function chooseOptExpenses() {
+    for (let i = 0; i < 3; i++) {
+        let a = prompt("Стаття необов\'язкових витрат: ", '');
+        if ((typeof(a) === 'string') && typeof(a) != null
+            && a != '' && a.length < 50) {
+                appData.optionalExpenses[i] = a;
+        } else {
+            i--;
+        }
+    };
+}
+
+chooseOptExpenses();
 
 if (appData.moneyPerDay < 100) {
     console.log("Мінімальний рівень достатку");
