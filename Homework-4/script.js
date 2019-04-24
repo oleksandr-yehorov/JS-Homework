@@ -56,19 +56,15 @@ function chooseOptExpenses() {
 
 chooseOptExpenses();
 
-function detectLevel() {
-    if (appData.moneyPerDay < 100) {
-        console.log("Мінімальний рівень достатку");
-    } else if (appData.moneyPerDay > 100 && appData.moneyPerDay < 2000) {
-        console.log("Середній рівень достатку");
-    } else if (appData.moneyPerDay > 2000) {
-        console.log("Високий рівень достатку");
-    } else {
-        console.log("Помилка!");
-    };
+if (appData.moneyPerDay < 100) {
+    console.log("Мінімальний рівень достатку");
+} else if (appData.moneyPerDay > 100 && appData.moneyPerDay < 2000) {
+    console.log("Середній рівень достатку");
+} else if (appData.moneyPerDay > 2000) {
+    console.log("Високий рівень достатку");
+} else {
+    console.log("Помилка!");
 };
-
-detectLevel();
 
 function checkSavings() {
     if (appData.savings == true) {
