@@ -66,6 +66,9 @@ let appData = {
     },
     chooseIncome: function() {
         let items = prompt("Що принесе додатковий дохід? (Перерахуйте через кому)", '');
+        while ((items == '') || (items == null)) {
+            items = prompt("Що принесе додатковий дохід? (Перерахуйте через кому)", '');
+        }
         appData.income = items.split(', ');
         appData.income.push(prompt("Може щось ще?", ''));
         appData.income.sort();
