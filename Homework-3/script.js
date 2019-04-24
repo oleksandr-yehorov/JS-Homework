@@ -6,7 +6,9 @@ function start() {
     while (isNan(money) || money === '' || money === null) {
         money = +prompt('Ваш бюджет на місяць?', '');
     }
-}
+};
+
+start();
 
 let appData = {
     budget: money,
@@ -17,19 +19,21 @@ let appData = {
     savings: false
 };
 
-// for ...
-
-for (let i = 0; i < 2; i++) {
-    let a = prompt('Введіть обов\'язкову статтю видатків у цьому місяці:', ''),
-        b = prompt('В яку суму обійдеться?', '');
-    if ((typeof(a) === 'string') && typeof(a) != null && typeof(b) != null
-        && a != '' && b != '' && a.length < 50) {
-            console.log("done");
-            appData.expenses[a] = b;
-    } else {
-        i--;
-    }
+function chooseExpenses() {
+    for (let i = 0; i < 2; i++) {
+        let a = prompt('Введіть обов\'язкову статтю видатків у цьому місяці:', ''),
+            b = prompt('В яку суму обійдеться?', '');
+        if ((typeof(a) === 'string') && typeof(a) != null && typeof(b) != null
+            && a != '' && b != '' && a.length < 50) {
+                console.log("done");
+                appData.expenses[a] = b;
+        } else {
+            i--;
+        }
+    };
 };
+
+chooseExpenses();
 
 // let i = 0;
 
