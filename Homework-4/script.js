@@ -1,5 +1,5 @@
 let money, time; 
-
+/*
 function start() {
     money = +prompt('Ваш бюджет на місяць?', '');
     time = prompt('Введіть дату у форматі YYYY-MM-DD:', '');
@@ -9,7 +9,7 @@ function start() {
 };
 
 start();
-
+*/
 let appData = {
     budget: money,
     expenses: {},
@@ -63,35 +63,13 @@ let appData = {
             alert("Дохід за місяць з Вашого депозиту: " + appData.monthIncome);
     
         };
+    },
+    chooseIncome: function() {
+        let items = prompt("Що принесе додатковий дохід? (Перерахуйте через кому)", '');
+        appData.income = items.split(', ');
+        appData.income.push(prompt("Може щось ще?", ''));
+        appData.income.sort();
     }
 };
 
-function chooseExpenses() {
-    
-};
-
-chooseExpenses();
-
-function detectDayBudget() {
-   
-}
-
-detectDayBudget();
-
-function chooseOptExpenses() {
-
-}
-
-chooseOptExpenses();
-
-function detectLevel() {
-   
-};
-
-detectLevel();
-
-function checkSavings() {
-  
-};
-
-checkSavings();
+appData.chooseIncome();
