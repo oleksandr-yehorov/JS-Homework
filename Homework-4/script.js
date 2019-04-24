@@ -1,4 +1,4 @@
-let money, time;
+let money, time; 
 
 function start() {
     money = +prompt('Ваш бюджет на місяць?', '');
@@ -56,15 +56,19 @@ function chooseOptExpenses() {
 
 chooseOptExpenses();
 
-if (appData.moneyPerDay < 100) {
-    console.log("Мінімальний рівень достатку");
-} else if (appData.moneyPerDay > 100 && appData.moneyPerDay < 2000) {
-    console.log("Середній рівень достатку");
-} else if (appData.moneyPerDay > 2000) {
-    console.log("Високий рівень достатку");
-} else {
-    console.log("Помилка!");
+function detectLevel() {
+    if (appData.moneyPerDay < 100) {
+        console.log("Мінімальний рівень достатку");
+    } else if (appData.moneyPerDay > 100 && appData.moneyPerDay < 2000) {
+        console.log("Середній рівень достатку");
+    } else if (appData.moneyPerDay > 2000) {
+        console.log("Високий рівень достатку");
+    } else {
+        console.log("Помилка!");
+    };
 };
+
+detectLevel();
 
 function checkSavings() {
     if (appData.savings == true) {
