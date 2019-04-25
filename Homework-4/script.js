@@ -1,5 +1,5 @@
 let money, time; 
-/*
+
 function start() {
     money = +prompt('Ваш бюджет на місяць?', '');
     time = prompt('Введіть дату у форматі YYYY-MM-DD:', '');
@@ -9,7 +9,7 @@ function start() {
 };
 
 start();
-*/
+
 let appData = {
     budget: money,
     expenses: {},
@@ -72,7 +72,30 @@ let appData = {
         appData.income = items.split(', ');
         appData.income.push(prompt("Може щось ще?", ''));
         appData.income.sort();
+        console.log("Способи додаткового заробітку: ");
+        appData.income.forEach(function(item, i){
+            i++;
+            console.log(i + ": " + item);
+        })
+    },
+    objAppData: function() {
+        console.log("Наша програма містить в собі: ");
+        for (let key in appData) {
+            console.log(key + " : " + appData[key]);    
+        }
     }
 };
 
+appData.chooseExpenses();
+
+appData.detectDayBudget();
+
+appData.chooseOptExpenses();
+
+appData.detectLevel();
+
+appData.checkSavings();
+
 appData.chooseIncome();
+
+appData.objAppData();
