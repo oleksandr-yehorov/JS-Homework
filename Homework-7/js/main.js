@@ -19,7 +19,7 @@ let startBtn = document.getElementById('start'),
     percentValue = document.querySelector('.choose-percent'),
     yearValue = document.querySelector('.year-value'),
     monthValue = document.querySelector('.month-value'),
-    dayvalue = document.querySelector('.day-value');
+    dayValue = document.querySelector('.day-value');
 
 let money, time; 
 
@@ -32,6 +32,30 @@ startBtn.addEventListener('click', function() {
     appData.budget = money;
     appData.timeData = time;
     budgetValue.textContent = money.toFixed();
+    yearValue.value = new Date(Date.parse(time)).getFullYear();
+    monthValue.value = new Date(Date.parse(time)).getMonth() + 1;    // місяць починається з нуля
+    dayValue.value = new Date(Date.parse(time)).getDate();
+});
+
+expensesBtn.addEventListener('click', function(){
+   let sum = 0;
+   for (let i = 0; i < expensesItem.length; i++) {
+    let a = expensesItem[i].value,
+        b = expensesItem[++i].value;
+    if ((typeof(a) === 'string') && typeof(a) != null && typeof(b) != null
+        && a != '' && b != '' && a.length < 50) {
+            console.log("done");
+            appData.expenses[a] = b;
+            sum += +b;
+    } else {
+        i--;
+        }
+    };
+    expensesValue.textContent = sum;
+});
+
+optionalExpensesBtn.addEventListener('click', function(){
+
 });
 
 let appData = {
@@ -42,17 +66,7 @@ let appData = {
     timeData: time,
     savings: true,
     chooseExpenses: function() {
-        for (let i = 0; i < 2; i++) {
-            let a = prompt('Введіть обов\'язкову статтю видатків у цьому місяці:', ''),
-                b = prompt('В яку суму обійдеться?', '');
-            if ((typeof(a) === 'string') && typeof(a) != null && typeof(b) != null
-                && a != '' && b != '' && a.length < 50) {
-                    console.log("done");
-                    appData.expenses[a] = b;
-            } else {
-                i--;
-            }
-        };
+        
     },
     detectDayBudget: function() {
         appData.moneyPerDay = (appData.budget/30).toFixed();
