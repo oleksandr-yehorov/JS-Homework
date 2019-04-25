@@ -28,3 +28,11 @@ function deleteAdvertizing() {
 }
 
 deleteAdvertizing();
+
+function askUser() {
+    let ask = prompt('Ваше отношение к технике Apple? ', '');
+    let pr = document.getElementById('prompt');
+    pr.innerText = ask;
+};
+
+askUser();
