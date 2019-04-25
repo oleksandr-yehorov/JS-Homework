@@ -21,3 +21,10 @@ function changeTitle() {
 };
 
 changeTitle();
+
+function deleteAdvertizing() { 
+    let adv = document.getElementsByClassName('adv');
+    adv[0].remove();
+}
+
+deleteAdvertizing();
