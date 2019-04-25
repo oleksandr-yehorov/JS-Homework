@@ -14,3 +14,10 @@ function changeImage() {
 };
 
 changeImage();
+
+function changeTitle() {
+    let title = document.getElementById('title');
+    title.innerText = 'Мы продаем только подлинную технику Apple';
+};
+
+changeTitle();
