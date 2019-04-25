@@ -1,3 +1,11 @@
+function replaceElements() {
+    let menu_item = document.getElementsByClassName('menu-item');
+    menu_item[1].innerText = 'Второй пункт';
+    menu_item[2].innerText = 'Третий пункт';
+};
+
+replaceElements();
+
 function fifthElement(){
     let menu = document.getElementsByClassName('menu');
     let newLi = document.createElement('li');
