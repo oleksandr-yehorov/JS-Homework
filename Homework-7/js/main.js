@@ -55,7 +55,36 @@ expensesBtn.addEventListener('click', function(){
 });
 
 optionalExpensesBtn.addEventListener('click', function(){
+    for (let i = 0; i <= optionalExpensesItem.length; i++) {
+        let opt = optionalExpensesItem[i].value;
+        appData.optionalExpenses[i] = opt;       
+        optionalExpensesValue.textContent += appData.optionalExpenses[i] + ' ';
+    };    
+});
 
+countBtn.addEventListener('click', function(){
+    if (appData.budget != undefined){
+        appData.moneyPerDay = (appData.budget/30).toFixed();
+        dayBudgetValue.textContent = appData.moneyPerDay;
+        if (appData.moneyPerDay < 100) {
+            levelValue.textContent = 'Мінімальний рівень достатку';
+        } else if (appData.moneyPerDay > 100 && appData.moneyPerDay < 2000) {
+            levelValue.textContent = 'Середній рівень достатку';
+        } else if (appData.moneyPerDay > 2000) {
+            levelValue.textContent = 'Високий рівень достатку';
+        } else {
+            levelValue.textContent = 'Помилка!';
+        };
+    } else {
+        dayBudgetValue.textContent = 'Помилка!';
+    }
+   
+});
+
+incomeItem.addEventListener('change', function(){
+    let items = incomeItem.value;
+    appData.income = items.split(', ');
+    incomeValue.textContent = appData.income;
 });
 
 let appData = {
@@ -69,28 +98,14 @@ let appData = {
         
     },
     detectDayBudget: function() {
-        appData.moneyPerDay = (appData.budget/30).toFixed();
+        
         alert("Щоденний бюджет: " + appData.moneyPerDay);
     },
     chooseOptExpenses: function() {
-        for (let i = 0; i < 3; i++) {
-            let a = prompt("Стаття необов\'язкових витрат: ", '');
-            if ((typeof(a) === 'string') && typeof(a) != null
-                && a != '' && a.length < 50) {
-                    appData.optionalExpenses[i] = a;
-            };
-        };    
+        
     },
     detectLevel: function() {
-        if (appData.moneyPerDay < 100) {
-            console.log("Мінімальний рівень достатку");
-        } else if (appData.moneyPerDay > 100 && appData.moneyPerDay < 2000) {
-            console.log("Середній рівень достатку");
-        } else if (appData.moneyPerDay > 2000) {
-            console.log("Високий рівень достатку");
-        } else {
-            console.log("Помилка!");
-        };
+
     },
     checkSavings: function() {
         if (appData.savings == true) {
