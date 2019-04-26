@@ -87,13 +87,43 @@ incomeItem.addEventListener('input', function(){
     incomeValue.textContent = appData.income;
 });
 
+checkSavings.addEventListener('click', function(){
+    if (appData.savings == true) {
+        appData.savings = false;
+    } else {
+        appData.savings = true;
+    }
+});
+
+sumValue.addEventListener('input', function(){
+    if (appData.savings == true) {
+        let sum = +sumValue.value,
+            percent = +percentValue.value;
+        appData.monthIncome = sum/100/12*percent;
+        appData.yearIncome = sum/100*percent;
+        monthSavingsValue.textContent = appData.monthIncome.toFixed(1);
+        yearSavingsValue.textContent = appData.yearIncome.toFixed(1);
+    }    
+});
+
+percentValue.addEventListener('input', function(){
+    if (appData.savings == true) {
+        let sum = +sumValue.value,
+            percent = +percentValue.value;
+        appData.monthIncome = sum/100/12*percent;
+        appData.yearIncome = sum/100*percent;
+        monthSavingsValue.textContent = appData.monthIncome.toFixed(1);
+        yearSavingsValue.textContent = appData.yearIncome.toFixed(1);  
+    }
+});
+
 let appData = {
     budget: money,
     expenses: {},
     optionalExpenses: {},
     income: [],
     timeData: time,
-    savings: true,
+    savings: false,
     chooseExpenses: function() {
         
     },
