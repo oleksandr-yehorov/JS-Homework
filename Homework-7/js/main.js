@@ -81,7 +81,7 @@ countBtn.addEventListener('click', function(){
    
 });
 
-incomeItem.addEventListener('change', function(){
+incomeItem.addEventListener('input', function(){
     let items = incomeItem.value;
     appData.income = items.split(', ');
     incomeValue.textContent = appData.income;
