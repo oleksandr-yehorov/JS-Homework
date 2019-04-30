@@ -34,4 +34,20 @@ window.addEventListener('DOMContentLoaded', function(){
         }
     });
 
+    // Timer
+
+    let deadLine = '2019-05-25';
+
+    function getTimeRemaining(endtime) {
+        let t = Date.parse(endtime) - Date.parse(new Date()),
+            seconds = Math.floor((t/1000) % 60),
+            minutes = Math.floor((t/1000/60) % 60),
+            hours = Math.floor((t/(1000*60*60)));
+        return {
+            'total': t,
+            'seconds': seconds,
+            'minutes': minutes,
+            'hours': hours
+        }
+    };
 })
