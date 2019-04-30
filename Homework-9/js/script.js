@@ -48,6 +48,12 @@ window.addEventListener('DOMContentLoaded', function(){
             'seconds': seconds,
             'minutes': minutes,
             'hours': hours
-        }
+        };
     };
+
+    function setClock(id, endtime) {
+
+    };
+
+    setClock('timer', deadLine);
 })
