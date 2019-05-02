@@ -1,13 +1,5 @@
-
-//let age = document.getElementById('age');
-
-function getValue(){
-    var age = document.getElementById("submit");
-    alert(age.value);
-    return age.value;
-  };
-function showUser(surname = 'Yehorov', name = 'Olekandr') {
-	console.log("Пользователь " + surname + " " + name + ", его возраст " + getValue());
-};
-
-showUser();
+let age = document.getElementById('age');
+function showUser(surname, name) {
+	alert("Пользователь " + surname + " " + name + ", его возраст " + Number(age));
+}
+showUser('Yehorov', 'Oleksandr');
