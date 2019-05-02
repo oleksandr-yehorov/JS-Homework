@@ -52,7 +52,22 @@ window.addEventListener('DOMContentLoaded', function(){
     };
 
     function setClock(id, endtime) {
+        let timer = document.getElementById(id),
+            hours = timer.querySelector('.hours'),
+            minutes = timer.querySelector('.minutes'),
+            seconds = timer.querySelector('.seconds'),
+            timeInterval = setInterval(updateClock, 1000);
 
+        function updateClock() {
+            let t = getTimeRemaining(endtime);
+            hours.textContent = t.hours;
+            minutes.textContent = t.minutes;
+            seconds.textContent = t.seconds;
+
+            if (t.total <= 0) {
+                clearInterval(timeInterval);
+            }
+        }
     };
 
     setClock('timer', deadLine);
