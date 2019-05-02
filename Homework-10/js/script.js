@@ -84,7 +84,7 @@ window.addEventListener('DOMContentLoaded', function(){
 
     setClock('timer', deadLine);
 
-    // Modals
+    // Modal
 
     let more = document.querySelector('.more'),
         overlay = document.querySelector('.overlay'),
@@ -100,6 +100,17 @@ window.addEventListener('DOMContentLoaded', function(){
         overlay.style.display = 'none';
         more.classList.remove('more-splash');
         document.body.style.overflow = '';
-    })
+    });
 
+    let moreDescription = document.getElementsByClassName('description-btn');
+    
+    for (let i=0; i<=3; i++) {
+        moreDescription[i].addEventListener('click', function() {
+            overlay.style.display = 'block';
+            this.classList.add('more-splash');
+            document.body.style.overflow = 'hidden';
+        });
+    
+    };
+    
 })
