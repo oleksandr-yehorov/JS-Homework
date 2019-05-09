@@ -1,5 +1,6 @@
-let age = document.getElementById('age');
-function showUser(surname, name) {
-	alert("Пользователь " + surname + " " + name + ", его возраст " + Number(age));
-}
-showUser('Yehorov', 'Oleksandr');
+let surname = 'Smith',
+	name = 'John';
+
+function ageValue(age) {
+		alert("Користувач " + name + " " + surname + ", його вік " + age.value);
+	};
